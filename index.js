@@ -3,7 +3,9 @@ const { Octokit } = require("@octokit/rest");
 
 async function main() {
   const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
-  const reposResponse = await octokit.repos.listForAuthenticatedUser();
+  const reposResponse = await octokit.repos.listForAuthenticatedUser({
+    per_page: 100,
+  });
   console.log('repo_name,stars,views,uniques');
   for (let repo of reposResponse.data) {
     if (repo.private) {
