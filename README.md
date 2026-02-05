@@ -5,13 +5,23 @@ Prints out all traffic insights for GitHub repositories that you have access to
 
 ## Usage
 
-1. [Create a personal web access token](https://github.com/settings/tokens/new), with `repo` scope
-  - On MacOS store it in the keychain: `security add-generic-password -a "$USER" -s 'github-traffic-check-token' -w`
-2. Copy [`.env.sample`](./.env.sample) to `.env` and fill in the details
-3. `nvm install` and then `nvm use`
-4. `npm install`
+Install:
 
-Running the program:
+```shell
+nvm install
+nvm use
+npm install
+```
+
+[Create a personal web access token](https://github.com/settings/tokens/new), with `repo` scope:
+
+```shell
+# On MacOS store it in the keychain
+security add-generic-password -a "$USER" -s 'github-traffic-check-token' -w
+```
+
+Run the program:
+
 ```shell
 # MacOS
 GITHUB_AUTH_TOKEN=$(security find-generic-password -a "$USER" -s 'github-traffic-check-token' -w) npm start
