@@ -7,8 +7,9 @@ Prints out all traffic insights for GitHub repositories that you have access to
 
 1. [Create a personal web access token](https://github.com/settings/tokens/new), with `repo` scope
 2. Copy [`.env.sample`](./.env.sample) to `.env` and fill in the details
-3. `npm install`
-4. `npm start`
+3. `nvm install` and then `nvm use`
+4. `npm install`
+5. `npm start`
 
 ### Example output
 
