@@ -9,8 +9,8 @@ if (!process.env.GITHUB_AUTH_TOKEN) {
 const octokit = new Octokit({ auth: process.env.GITHUB_AUTH_TOKEN });
 
 async function fetchRepoData() {
-  const repos = await octokit.repos.listForAuthenticatedUser({ per_page: 100 });
-  return repos.data;
+  const repos = await octokit.paginate(octokit.repos.listForAuthenticatedUser, { per_page: 100 });
+  return repos;
 }
 
 async function fetchTrafficData(owner, name) {
