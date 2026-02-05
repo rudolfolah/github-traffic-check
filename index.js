@@ -1,4 +1,3 @@
-require('dotenv').config();
 const { Octokit } = require("@octokit/rest");
 
 if (!process.env.GITHUB_AUTH_TOKEN) {

@@ -12,7 +12,6 @@
   "author": "Rudolf Olah <rudolf.olah.to@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@octokit/rest": "^19.0.13",
-    "dotenv": "^16.3.1"
+    "@octokit/rest": "^19.0.13"
   }
 }
