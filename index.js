@@ -1,5 +1,7 @@
 const { Octokit } = require("@octokit/rest");
 
+const DEBUG_LOG = process.env.DEBUG_LOG === "1";
+
 if (!process.env.GITHUB_AUTH_TOKEN) {
   throw new Error("Environment variable GITHUB_AUTH_TOKEN is not set");
 }
@@ -21,6 +23,9 @@ async function main() {
   console.log('repo_name,stars,views,uniques');
   for (let repo of repos) {
     if (repo.private) {
+      if (DEBUG_LOG) {
+        console.error(`Skipping private repo: ${repo.full_name}`);
+      }
       continue;
     }
     const traffic = await fetchTrafficData(repo.owner.login, repo.name);
